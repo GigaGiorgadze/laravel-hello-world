@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function(){
+    return view('welcome', ['name' => 'world']);
 });
-Route::any('/hello/{any}', function () {
-    return view('hello');
+
+Route::get('/hello/{name}', function ($name){
+    return view('welcome', ['name' => $name]);
 });
